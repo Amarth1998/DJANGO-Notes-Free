@@ -1,0 +1,205 @@
+Django interview - viva Q&A
+=============================
+Q.1>Why Django? What are the main advantages?
+Django is an open-source web development framework supported by the Django Software Foundation. It’s written in Python, a popular programming language, and is designed to encourage “rapid development and clean, pragmatic design.” 
+It’s fast, secure, and scalable.
+Big giantess Google, Youtube, and Instagram use this framework. Such large websites built on Django Pinterest, Disqus, Mozilla, National Geographic. 
+
+Q.2>What is the official website of Django?
+https://www.djangoproject.com/
+
+Q.3>Who developed Django?
+Django was invented by Lawrence Journal-World in 2003,
+Q.4>Is Django Open Source?
+yes,it is
+Q.5>What is a framework?
+A framework is a structure that you can build software on. 
+It serves as a foundation, so you’re not starting entirely from
+ scratch.
+Frameworks are typically associated with a specific programming
+ language and are suited to different types of tasks.
+Q.6>Which is the latest version of Django?
+  4.2.1
+Q.7>How to install Django?
+
+Globally:
+pip install django
+
+
+Virtually:
+pip install virtualenv
+in a specific location
+D:\Users1\cybrom>virtualenv -p python3 venv
+
+D:\Users1\cybrom>venv\Scripts\activate
+(venv) D:\Users1\cybrom>pip install django
+
+Q.8>PIP full form & why it is used?
+pip is the package installer for Python. You can use it to install packages from the Python Package Index and other indexes.
+“pip Install Packages”
+
+Q.9>How to check the version of Django in cmd?
+django-admin --version
+
+Q.10>What is Django admin?
+django-admin is Django’s command-line utility for administrative tasks.
+
+Q.11>How to Check if Django is installed on the system or not?
+django-admin --version
+
+
+Q.12>How to verify that Django can be seen by Python?
+python -m django --version
+
+Q.13>How MVT work?
+
+Django, a Python framework to create web applications, 
+is based on Model-View-Template (MVT) architecture.
+MVT is a software design pattern for developing a web application. 
+It consists of the following three entities:
+
+Model
+View
+Template
+
+
+Model
+A Model is an object that defines the structure of the data in the Django application.
+
+It is responsible for maintaining the entire application’s data for
+ which it provides various mechanisms to add, update, read and delete the data 
+in the database.
+
+View
+A View is a handler function that accepts HTTP requests, processes them, and
+ returns the HTTP response.
+It retrieves the necessary data to fulfill the request using Models and renders them
+ on the user interface using Templates.
+
+It can also create an HTML page using an HTML template dynamically, and 
+populate it with data fetched from the model.
+
+Template
+A Template is a text file that defines the structure or layout of the user interface. 
+The text file can be any type of file; for example HTML, XML, etc.
+
+It can accept data from the view and render it using jinja syntax.
+
+
+Q.14>Which server is best suited to implement you want to use Django on a production site?
+For Django this will usually be the Gunicorn web application server (with a . wsgi script).
+Gunicorn (‘Green Unicorn’) is a pure-Python WSGI server for UNIX. It has no dependencies 
+and can be installed using pip.
+
+
+Q.15>What is the role of manage.py?
+manage.py is automatically created in each Django project. 
+It does the same thing as django-admin 
+but also sets the DJANGO_SETTINGS_MODULE environment variable so that
+it points to your project’s settings.py file.
+
+
+
+
+Q.16>What is an object-relational mapper and Queryset?
+ans:
+A queryset is simply a list of objects from the Django Models.
+When using the Django ORM creating a new row in the table is simply 
+like creating a new object of Model class. Django ORM maps these Model
+objects to Relational database query.
+
+table(row)==class(object)
+
+syntax:
+ModelName.objects.method_name(arguments)
+ex:
+Student.objects.get(pk=id)
+Student.objects.filter(name='ajay')
+
+
+Q.17>Name default installed app in Django?
+
+rename in 
+settings.py
+wsgi.py
+asgi.py
+manage.py
+
+
+
+Q.18>How can we see the SQL of a particular migration?
+
+from django.db import connection
+print(connection.queries)
+
+and
+
+py manage.py sqlmigrate app_name migation_file_name
+
+Q.19>How to change the server's port?
+
+py manage.py runserver 7000
+
+
+Q.20>Settings.py in used for?
+settings.py is a core file in Django projects. 
+It holds all the configuration values that your web app needs to work;
+database settings,url configuration,installed apps,where to find static files,etc
+
+
+
+Q.21>Where we can declare the urls of Django projects?
+1)default_app.urls
+2)app.urls
+
+
+
+
+
+Q.22>What is the use of the asgi.py & wsgi.py?
+
+>>WSGI stands for "Web Server Gateway Interface". 
+It is used to forward requests from a web server 
+(such as Apache or NGINX) 
+to a backend Python web application or framework.
+
+>>Asynchronous Server Gateway Interface.Like WSGI, ASGI
+ describes a common
+interface between a Python web application and the web server. 
+Unlike WSGI, ASGI allows multiple, asynchronous events per application.
+Plus, ASGI supports both sync and async apps.
+You can migrate your old, synchronous WSGI web apps to ASGI, 
+as well as use ASGI to build new, asynchronous web apps.
+
+Q.23>What is the use of the __init__.py?( __init__(self): constructor)
+The __init__.py file is used to mark a directory as a Python package,
+making it possible to import modules and sub-packages from that directory.
+
+Q.24>What is __pycache__?
+
+When you run a program in Python, the interpreter compiles it to bytecode first  and stores it in the __pycache__ folder. 
+If you look in there you will find a bunch of files sharing the names of the .py files in your project's folder, 
+only their extensions will be either .pyc or .pyo. These are bytecode-compiled and optimized bytecode-compiled versions of your program's files, respectively.
+
+As a programmer, you can largely just ignore it... All it does is make your program start a little faster. When your scripts change, they will be recompiled,
+ and if you delete the files or the whole folder and run your program again, they will reappear (unless you specifically suppress that behavior).
+
+Q.25>When you create a Django project, which files do you get in   advance?
+
+
+Q.26>What will you do to work on your system with multiple Django projects of different Django versions?
+
+
+
+Q.27>What must be the debug value while the developments of a python project?
+True
+
+Q.28>
+Where we can declare the urls of Django projects?
+urls.py 
+
+Q.29>Can we delete the default app?
+yes, we can but it's troublesome b'se we have to create settings,asgi,etc by ourself ,which create a problem.
+
+Q.30>How to include an app in a Django project?
+
